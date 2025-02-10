@@ -1,7 +1,3 @@
----
-coverY: 0
----
-
 # 👋 Welcome to VerifyWise
 
 [VerifyWise](https://verifywise.ai/) is an open-source AI governance platform designed to help businesses harness the power of artificial intelligence safely and responsibly. Our platform ensures compliance and robust AI management without compromising on security.
