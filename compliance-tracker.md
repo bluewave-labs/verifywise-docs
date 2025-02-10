@@ -1,4 +1,4 @@
-# Compliance tracker
+# 🕶️ Compliance tracker
 
 The compliance tracker is a central location for examining the _EU AI Act_ compliance metrics of a given project.
 

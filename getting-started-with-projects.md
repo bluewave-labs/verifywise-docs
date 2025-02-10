@@ -1,2 +1,2 @@
-# Getting started with projects
+# 🚀 Getting started with projects
 

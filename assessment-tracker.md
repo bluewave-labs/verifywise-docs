@@ -1,4 +1,4 @@
-# Assessment tracker
+# 👓 Assessment tracker
 
 The assessment tracker encourages AI developers and providers to reflect on how their AI projects may interact with the different provisions and components of the _EU AI Act_.
 

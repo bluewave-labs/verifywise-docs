@@ -1,2 +1,2 @@
-# Installing VerifyWise
+# 💾 Installing VerifyWise
 

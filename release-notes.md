@@ -1,2 +1,2 @@
-# Release notes
+# 📖 Release notes
 

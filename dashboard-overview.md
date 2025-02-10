@@ -1,4 +1,4 @@
-# Dashboard overview
+# 💻 Dashboard overview
 
 On the Dashboard, you can see an overview of your projects, the compliance status of your projects, and the risk status of all of your projects.\
 

@@ -1,4 +1,4 @@
-# Managing vendors
+# 👨‍💻 Managing vendors
 
 The Vendors tab is convenient for managing all third-party vendors involved in your AI application.
 
