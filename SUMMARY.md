@@ -10,4 +10,3 @@
 * [👨‍💻 Managing vendors](managing-vendors.md)
 * [⚙️ Settings](settings.md)
 * [📖 Release notes](release-notes.md)
-* [⛑️ Get support](get-support.md)
