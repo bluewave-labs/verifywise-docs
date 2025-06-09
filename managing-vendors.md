@@ -1,10 +1,6 @@
 # 👨‍💻 Managing vendors
 
-The Vendors tab is convenient for managing all third-party vendors involved in your AI application.
-
-<figure><img src="https://github.com/bluewave-labs/verifywise-documentation/raw/master/.gitbook/assets/image%20(18).png" alt=""><figcaption></figcaption></figure>
-
-### Vendors screen
+The Vendor Management module in VerifyWise allows organizations to track, assess, and manage AI providers that they use in their projects. This system helps maintain a centralized record of all external vendors that provide AI-related products, services, or components, along with their review status, risk levels, and associated documentation.
 
 Each listed vendor has a name, an assignee to that vendor, a vendor status indicator, the risk status of the vendor, and a review date.
 
@@ -15,10 +11,6 @@ By clicking the gear icon in the rightmost column, a given vendor can be edited 
 You can change a vendor's settings by clicking the corresponding gear icon and then 'Edit'. Alternatively, click `Add new vendor` on the top right corner of the screen to create a new vendor.
 
 ### Vendor details
-
-To add a new vendor to a project, you need to first provide details on the vendor.
-
-<figure><img src="https://github.com/bluewave-labs/verifywise-documentation/raw/master/.gitbook/assets/image%20(19).png" alt=""><figcaption></figcaption></figure>
 
 To add a new vendor, add the following to the "Vendor details" tab. Just a note that when a vendor is added, it is available for all projects.
 
@@ -35,7 +27,7 @@ To add a new vendor, add the following to the "Vendor details" tab. Just a note 
 11. **Review date:** Note down the date of vendor review, if one was conducted.
 12. If done, click `Save`.
 
-### **Risks**
+### **Vendor risks**
 
 If the vendor poses any risks, this needs to be monitored. The "Risks" tab allows users to provide details on risks posed by the new vendor, if any.
 
