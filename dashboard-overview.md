@@ -3,7 +3,7 @@
 On the Dashboard, you can see an overview of your projects, the compliance status of your projects, and the risk status of all of your projects.\
 
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Dashboard components are as follows:
 

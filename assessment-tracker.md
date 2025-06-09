@@ -7,7 +7,7 @@ To this end, the assessment tracker provides a number of questions in different 
 To start an assessment, first navigate to the assessment tracker via the sidebar:\
 
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

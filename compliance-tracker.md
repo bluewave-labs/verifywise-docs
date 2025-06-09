@@ -19,7 +19,7 @@ Subcontrol 3.2.1: We document system limitations and human oversight options.
 
 ```
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 At the top of the screen, you will see a table of metrics:
 
