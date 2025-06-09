@@ -4,11 +4,15 @@ The Vendor Management module in VerifyWise allows organizations to track, assess
 
 Each listed vendor has a name, an assignee to that vendor, a vendor status indicator, the risk status of the vendor, and a review date.
 
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
 By clicking the gear icon in the rightmost column, a given vendor can be edited or removed from the project.
 
 ### Add or edit a vendor
 
 You can change a vendor's settings by clicking the corresponding gear icon and then 'Edit'. Alternatively, click `Add new vendor` on the top right corner of the screen to create a new vendor.
+
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Vendor details
 
@@ -28,6 +32,8 @@ To add a new vendor, add the following to the "Vendor details" tab. Just a note 
 12. If done, click `Save`.
 
 ### **Vendor risks**
+
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 If the vendor poses any risks, this needs to be monitored. The "Risks" tab allows users to provide details on risks posed by the new vendor, if any.
 
