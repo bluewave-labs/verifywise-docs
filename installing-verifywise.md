@@ -1,5 +1,5 @@
 ---
-description: 'Estimated setup time: approximately 30 minutes'
+description: 'Estimated Setup Time: Approximately 30 minutes'
 ---
 
 # 💾 Installing VerifyWise
