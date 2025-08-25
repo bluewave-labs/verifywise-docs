@@ -1,172 +1,355 @@
 ---
-description: 'Estimated Setup Time: Approximately 30 minutes'
+description: 'Complete installation guide with quick-start and comprehensive options'
 ---
 
 # 💾 Installing VerifyWise
 
-Please see the installation and running instructions [here](https://github.com/bluewave-labs/verifywise).
+VerifyWise offers flexible installation options to suit different environments and use cases. Choose the method that best fits your needs.
 
-There are two ways of installing VerifyWise. The first method is for developers (for testing/developing), and the second one is to deploy VerifyWise on a Linux server (for production systems).
+## 🚀 Quick Start (5 minutes)
 
-## Option 1: Installing VerifyWise via npm (for developers)
+Perfect for trying VerifyWise quickly or demo purposes.
 
 ### Prerequisites
+- Docker and Docker Compose installed
+- 4GB+ available RAM
+- Internet connection
 
-1. Install `npm`: Ensure you have npm installed on your system.
-2. Install Docker: Make sure Docker is installed.
-3. Download Docker PostgreSQL Image: Get PostgreSQL Docker image, version 16.8.
+### Installation Steps
 
-#### 1. Clone the repository
-
-Clone the repository (main branch) to your local machine.
-
-#### 2. Install dependencies
-
-Navigate to the Clients directory and install the dependencies:
-
-```
-cd Clients
-npm i
+1. **Create and navigate to installation directory:**
+```bash
+mkdir verifywise && cd verifywise
 ```
 
+2. **Download installation files:**
+```bash
+wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/docker-compose.yml
+wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/.env.prod
+wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/install.sh
+```
 
+3. **Make installer executable and run:**
+```bash
+chmod +x install.sh
+./install.sh
+```
 
-\
+4. **Access VerifyWise:**
+- Open your browser to: `http://localhost:3000`
+- Default login: Create an account through the registration page
 
+> **Screenshot Location:** *Dashboard welcome screen after successful login*
 
-Navigate back to the root directory and then to the Servers directory to install the dependencies:
+---
 
-cd ..
+## 🏗️ Comprehensive Installation
 
-cd Servers
+For production deployments, development, or customized setups.
 
-npm install
+### System Requirements
 
-\
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| CPU | 2 cores | 4+ cores |
+| RAM | 4GB | 8GB+ |
+| Storage | 10GB | 50GB+ |
+| OS | Linux/macOS/Windows | Ubuntu 20.04+ |
 
+### Prerequisites Installation
 
-Create a .env file in the root directory:
+#### Install Node.js and npm
+```bash
+# Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-touch .env
+# macOS (using Homebrew)
+brew install node
 
-Copy the contents of .env.dev to the .env file:
+# Windows
+# Download from https://nodejs.org/
+```
 
+#### Install Docker
+```bash
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install docker.io docker-compose
+sudo usermod -aG docker $USER
+
+# macOS
+brew install docker docker-compose
+
+# Windows
+# Download Docker Desktop from https://docker.com/
+```
+
+### Installation Methods
+
+## Method 1: Docker Production Setup (Recommended)
+
+**Best for:** Production deployments, easy maintenance
+
+1. **Create project directory:**
+```bash
+mkdir verifywise-production
+cd verifywise-production
+```
+
+2. **Download production files:**
+```bash
+wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/docker-compose.prod.yml
+wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/.env.prod
+```
+
+3. **Configure environment:**
+```bash
+cp .env.prod .env
+nano .env  # Edit configuration as needed
+```
+
+4. **Start services:**
+```bash
+docker-compose -f docker-compose.prod.yml --env-file .env up -d
+```
+
+5. **Verify installation:**
+```bash
+docker ps  # Should show running containers
+curl http://localhost:3000  # Should return HTML
+```
+
+## Method 2: Development Setup
+
+**Best for:** Development, customization, contributing
+
+1. **Clone repository:**
+```bash
+git clone https://github.com/bluewave-labs/verifywise.git
+cd verifywise
+```
+
+2. **Set up environment:**
+```bash
 cp .env.dev .env
+```
 
-#### 4. Run PostgreSQL with Docker
+3. **Install client dependencies:**
+```bash
+cd Clients
+npm install
+cd ..
+```
 
-Run the PostgreSQL container with the following command:
-
-docker run -d --name mypostgres -p 5432:5432 -e POSTGRES\_PASSWORD={env variable password} postgres\
-\
-
-
-Access the PostgreSQL container and create the verifywise database:
-
-\
-
-
-docker exec -it mypostgres psql -U postgres
-
-CREATE DATABASE verifywise;
-
-\
-
-
-Navigate to the Servers directory and start the server in watch mode:
-
-\
-
-
+4. **Install server dependencies:**
+```bash
 cd Servers
+npm install
+cd ..
+```
 
+5. **Start database:**
+```bash
+docker run -d \
+  --name verifywise-postgres \
+  -p 5432:5432 \
+  -e POSTGRES_PASSWORD=your_password \
+  -e POSTGRES_DB=verifywise \
+  postgres:16
+```
+
+6. **Start development servers:**
+```bash
+# Terminal 1 - Backend
+cd Servers
 npm run watch
 
-\
-
-
-Navigate to the Clients directory and start the client in development mode:
-
-\
-
-
+# Terminal 2 - Frontend
 cd Clients
-
 npm run dev
+```
 
-\
-\[Note: Make sure to replace {env variable password} with the actual password from your environment variables. ]
+7. **Access development environment:**
+- Frontend: `http://localhost:5173`
+- Backend API: `http://localhost:3000/api`
 
-\
-\
+## Method 3: Manual Installation
 
+**Best for:** Custom server setups, advanced configurations
 
-Setup and Run Instructions using docker
+### Database Setup
+1. **Install PostgreSQL:**
+```bash
+sudo apt-get install postgresql postgresql-contrib
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+```
 
-### Prerequisites
+2. **Create database:**
+```bash
+sudo -u postgres psql
+CREATE DATABASE verifywise;
+CREATE USER verifywise_user WITH PASSWORD 'secure_password';
+GRANT ALL PRIVILEGES ON DATABASE verifywise TO verifywise_user;
+\q
+```
 
-* Ensure you have the following installed:
-*
-  * npm
-  * Docker
-  * Docker Compose
-
-Create Directory
-
-Create a directory in your desired folder:
-
-mkdir verifywise
-
+### Application Setup
+1. **Clone and build:**
+```bash
+git clone https://github.com/bluewave-labs/verifywise.git
 cd verifywise
+```
 
-Download Necessary Files
+2. **Configure environment:**
+```bash
+cp .env.example .env
+# Edit .env with your database credentials
+```
 
-Download the required files using wget:
+3. **Build and start:**
+```bash
+npm run build
+npm run start
+```
 
-wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/install.sh
+---
 
-wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/docker-compose.yml
+## 🔧 Post-Installation Setup
 
-wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/.env.prod
+### Initial Configuration
 
-Create Servers Directory
+1. **Access the application:**
+   - Navigate to your VerifyWise URL (e.g., `http://localhost:3000`)
+   
+2. **Create administrator account:**
+   - Click "Register" or "Sign Up"
+   - Fill in administrator details
+   - Verify email if configured
 
-Create a Servers directory and download the SQL commands file:
+3. **Configure organization settings:**
+   - Go to Settings → Organization
+   - Set organization name, logo, and preferences
 
-mkdir Servers
+4. **Set up first project:**
+   - Navigate to Dashboard
+   - Click "Create New Project"
+   - Follow the project setup wizard
 
-cd Servers
+### Essential Settings
 
-wget https://raw.githubusercontent.com/bluewave-labs/verifywise/develop/Servers/SQL\_Commands.sql
+- **User Management:** Configure roles and permissions
+- **Security:** Enable 2FA, set password policies
+- **Integrations:** Connect external tools if needed
+- **Backup:** Configure automated backups
 
-cd ..
+---
 
-\
+## ✅ Verification Checklist
 
+After installation, verify these components work correctly:
 
-Make Install Script Executable
+- [ ] Can access login page
+- [ ] Can create user account
+- [ ] Dashboard loads properly
+- [ ] Can create a new project
+- [ ] Can navigate to all main sections
+- [ ] Database connection is stable
+- [ ] File uploads work (if applicable)
 
-Change the permissions of the install.sh script to make it executable:
+---
 
-chmod +x ./install.sh
+## 🔒 Security Considerations
 
-Execute the install.sh script:
+### Production Security Checklist
+- [ ] Change default passwords
+- [ ] Enable HTTPS/SSL
+- [ ] Configure firewall rules
+- [ ] Set up regular backups
+- [ ] Enable access logging
+- [ ] Configure session timeouts
+- [ ] Review user permissions
 
-./install.sh
+### Environment Variables Security
+```bash
+# Never commit these to version control
+DB_PASSWORD=your_secure_password
+JWT_SECRET=your_jwt_secret_key
+API_ENCRYPTION_KEY=your_encryption_key
+```
 
-### Troubleshooting
+---
 
-If the install.sh script doesn't work, try the following commands:
+## 🆘 Troubleshooting Common Issues
 
-docker-compose --env-file .env.prod up -d backend
+### Port Conflicts
+```bash
+# Check what's using port 3000
+lsof -i :3000
+# Kill process if needed
+sudo kill -9 <PID>
+```
 
-docker ps  # to confirm
+### Database Connection Issues
+```bash
+# Test database connection
+pg_isready -h localhost -p 5432 -d verifywise
+# Check PostgreSQL logs
+sudo tail -f /var/log/postgresql/postgresql-*.log
+```
 
-docker-compose --env-file .env.prod up -d frontend
+### Docker Issues
+```bash
+# Restart Docker services
+sudo systemctl restart docker
+# View container logs
+docker logs <container_name>
+# Clean up Docker resources
+docker system prune -a
+```
 
-docker ps  # to confirm
+### Permission Issues
+```bash
+# Fix file permissions
+sudo chown -R $USER:$USER /path/to/verifywise
+chmod -R 755 /path/to/verifywise
+```
 
-\
-\
+---
 
+## 🔄 Updates and Maintenance
 
+### Updating VerifyWise
+```bash
+# Docker installation
+docker-compose pull
+docker-compose up -d
+
+# Development installation
+git pull origin main
+npm install  # In both Clients and Servers directories
+npm run build
+```
+
+### Backup Procedures
+```bash
+# Database backup
+pg_dump -h localhost -U verifywise_user verifywise > backup.sql
+
+# File backup
+tar -czf verifywise_backup.tar.gz /path/to/verifywise/data
+```
+
+---
+
+## 📞 Getting Help
+
+If you encounter issues during installation:
+
+1. **Check logs:** Review application and system logs for errors
+2. **Community:** Visit our GitHub Issues page
+3. **Documentation:** Refer to specific component documentation
+4. **Support:** Contact support team for production issues
+
+**Next Steps:** Once installed, proceed to [Dashboard Overview](dashboard-overview.md) to start using VerifyWise.
