@@ -13,13 +13,24 @@ Dashboard components are as follows:
 
 ### Navigation menu
 
-A narrow sidebar on the left keeps the main sections one click away.
+A narrow sidebar on the left keeps the main sections one click away. The navigation is organized into core features and additional tools:
 
-* **Dashboard**: Your current view, shows project progress at a glance.
-* **Vendors:** Manage third parties and their risk scores.
-* **Evidences:** Upload and tag proofs that back up each control.
-* **Reporting:** Generate exportable summaries for auditors or execs.
-* **Settings:** Adjust organization preferences, users, and security.
+**Core Features:**
+* **Dashboard**: Your current view, shows project progress and compliance status at a glance
+* **Vendors**: Manage third-party vendors, assess their risk scores, and track vendor relationships
+* **Evidences**: Upload, organize, and tag documentary proofs that back up each compliance control
+* **Reporting**: Generate exportable compliance summaries and reports for auditors or executives
+* **Bias & Fairness**: Analyze AI models for bias detection and fairness evaluation
+* **Training Registry**: Manage AI governance training programs and track completion status
+* **Policy Manager**: Create, maintain, and enforce AI governance policies across your organization
+* **AI Trust Center**: Build and manage public-facing transparency hubs for stakeholder trust
+* **Model Inventory**: Comprehensive tracking and management of all AI/ML models and their lifecycle
+
+**Additional Tools:**
+* **Event Tracker**: Monitor system activities, user actions, and compliance events with detailed audit trails
+* **Settings**: Configure user profiles, team management, organization details, and system preferences
+* **Feedback**: Provide feedback and suggestions through GitHub discussions
+* **Ask on Discord**: Connect with the VerifyWise community for support and collaboration
 
 ### Creating a new project
 
